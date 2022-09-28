@@ -89,3 +89,11 @@ mappedObj.set(mappedObj, 'Object');
 const arrayOfNumbers = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5];
 const set = new Set(arrayOfNumbers);
 //console.log(set);
+
+const newUserArray = ['Oleksii', 'Ustinov', 31];
+//Деструктуризація масива
+const [name, lastName] = newUserArray;
+//Отримання всіх інших значень масива за допомогою rest operator
+const [firstname, ...rest] = newUserArray;
+//Повне копіювання масиву
+const [...args] = newUserArray;
