@@ -92,8 +92,51 @@ const set = new Set(arrayOfNumbers);
 
 const newUserArray = ['Oleksii', 'Ustinov', 31];
 //Деструктуризація масива
-const [name, lastName] = newUserArray;
+const [Firstname, lastName] = newUserArray;
 //Отримання всіх інших значень масива за допомогою rest operator
 const [firstname, ...rest] = newUserArray;
 //Повне копіювання масиву
 const [...args] = newUserArray;
+
+function getFullName([name = 'John', lastName = 'Doe'], isUpperCase = false) {
+  const result = `${name} ${lastName}`;
+
+  return isUpperCase ? result.toUpperCase() : result;
+}
+
+const objectUserExample = {
+  name: 'Oleksii',
+  lastName: 'Ustinov',
+  age: 31,
+};
+
+//const { name, ...other } = objectUserExample;
+//In order to avoid undefined we could add the default
+const { name = 'John', ...other } = objectUserExample;
+
+function etFullName(
+  { name = 'John', lastName = 'Doe' } = {},
+  withConsole = false
+) {
+  withConsole && console.log('Hello World');
+  return `${name} ${lastName}`;
+}
+
+//Object copying, object merging
+
+const numberedArray = [1, 2, 3];
+
+const copiedArrAy = [...numberedArray];
+
+const AddedNumbersArray = [...copiedArrAy, 4, 5, 6];
+
+const start = [1, 2, 3];
+const middle = [5, 6, 7];
+const end = [9, 10, 11];
+const fullNumbersRow = [0, ...start, 4, ...middle, 8, ...end];
+
+//Array method that allows to get elements from subarrays
+
+const arr = [1, 2, 3, [4, 5, 6, [7, 8, 9]]];
+//WE should point out the depth of copying
+arr.flat(4);
